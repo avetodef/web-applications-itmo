@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Магазин одежды</title>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Добро пожаловать в наш магазин одежды!</h1>
+      <div id="addedToCartMessage" style="display: none">
+        Товар успешно добавлен в корзину
+      </div>
+      <nav class="nav">
+        <a href="cart.html" class="nav-item">
+          <img
+            class="cart-icon"
+            src="https://cdn.iconscout.com/icon/premium/png-512-thumb/delivery-cart-8526566-6966974.png?f=webp&w=256"
+            alt="Корзина"
+          />
+          Корзина
+        </a>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="product">
+        <div class="product-item" data-product_id="1">
+          <img class="product-img" src="../images/dress.jpg" alt="Платье" />
+          <div class="product-info">
+            <h2 class="product-title">Платье в полоску</h2>
+            <p class="product-price">$50</p>
+            <button class="add-to-cart">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product-item" data-product_id="4">
+          <img class="product-img" src="../images/shoes.avif" alt="Туфли" />
+          <div class="product-info">
+            <h2 class="product-title">Туфли</h2>
+            <p class="product-price">$60</p>
+            <button class="add-to-cart">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product-item" data-product_id="5">
+          <img class="product-img" src="../images/skirt.jpg" alt="Юбка" />
+          <div class="product-info">
+            <h2 class="product-title">Юбка</h2>
+            <p class="product-price">$40</p>
+            <button class="add-to-cart">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product-item" data-product_id="3">
+          <img class="product-img" src="../images/jacket.avif" alt="Куртка" />
+          <div class="product-info">
+            <h2 class="product-title">Куртка</h2>
+            <p class="product-price">$70</p>
+            <button class="add-to-cart">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product-item" data-product_id="2">
+          <img class="product-img" src="../images/jeans.jpg" alt="Джинсы" />
+          <div class="product-info">
+            <h2 class="product-title">Джинсы</h2>
+            <p class="product-price">$55</p>
+            <button class="add-to-cart">Добавить в корзину</button>
+          </div>
+        </div>
+        <div class="product-item" data-product_id="6">
+          <img class="product-img" src="../images/shirt.jpg" alt="Рубашка" />
+          <div class="product-info">
+            <h2 class="product-title">Рубашка</h2>
+            <p class="product-price">$30</p>
+            <button class="add-to-cart">Добавить в корзину</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

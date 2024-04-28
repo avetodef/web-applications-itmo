@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Корзина</title>
+    <link rel="stylesheet" href="styles/cart.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Корзина</h1>
+    </header>
+    <div class="container" id="cart-items-container"></div>
+
+    <button id="checkout-btn" class="checkout-btn">
+      Перейти к оформлению покупки
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../server/get_cart_items.php")
+          .then((response) => response.json())
+          .then((data) => {
+            const cartItemsContainer = document.getElementById(
+              "cart-items-container"
+            );
+            if (Array.isArray(data)) {
+              data.forEach((item) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+
+                const productTitle = document.createElement("h2");
+                productTitle.classList.add("name");
+                productTitle.textContent = item.name;
+
+                const productPrice = document.createElement("p");
+                productPrice.classList.add("price");
+                productPrice.textContent = "$" + item.price;
+
+                cartItem.appendChild(productTitle);
+                cartItem.appendChild(productPrice);
+
+                cartItemsContainer.appendChild(cartItem);
+              });
+
+              const totalPrice = data.reduce(
+                (acc, item) => acc + item.price,
+                0
+              );
+              const totalPriceElement = document.createElement("div");
+              totalPriceElement.classList.add("total-price");
+              totalPriceElement.textContent =
+                "Общая стоимость: $" + totalPrice.toFixed(2);
+              cartItemsContainer.appendChild(totalPriceElement);
+            } else {
+              console.error("Данные из корзины не являются массивом:", data);
+            }
+          })
+          .catch((error) => {
+            console.error("Ошибка при получении данных из корзины:", error);
+          });
+
+        const checkoutBtn = document.getElementById("checkout-btn");
+        checkoutBtn.addEventListener("click", function () {
+          window.location.href = "order_form.html";
+        });
+      });
+    </script>
+  </body>
+</html>
